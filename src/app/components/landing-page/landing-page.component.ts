@@ -11,6 +11,6 @@ export class LandingPageComponent {
   private router = inject(Router);
 
   onContinue(): void{
-    this.router.navigateByUrl("websnaps");
+    this.router.navigateByUrl("personnages");
   }
 }

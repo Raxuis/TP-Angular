@@ -12,7 +12,10 @@ export class CharactersService {
 
   getCharactersList(): Observable<RickAndMortyCharacter[]> {
     return this.http.get<{ results: RickAndMortyCharacter[] }>('https://rickandmortyapi.com/api/character').pipe(
-      map((response) => response.results)
+      map((response) => {
+        console.log(response.results)
+        return response.results;
+      })
     )
   }
 }

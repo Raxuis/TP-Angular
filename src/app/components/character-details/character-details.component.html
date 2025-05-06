@@ -1,0 +1,6 @@
+<div class="character-card" [routerLink]="['/character', characterDetails.id]">
+  <img [src]="characterDetails.image" alt="{{ characterDetails.name }}"/>
+  <h3>{{ characterDetails.name }}</h3>
+  <p>Species: {{ characterDetails.species }}</p>
+  <p>Status: {{ characterDetails.status }}</p>
+</div>

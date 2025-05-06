@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
 import {AuthGuard} from './guards/auth/auth.guard';
 
-const appTitle = "WebSnapApp";
+const appTitle = "TP-Angular";
 
 export const routes: Routes = [
   {

@@ -36,7 +36,7 @@ export class AuthService {
         localStorage.setItem("fake-jwt", user.token);
         this.authToken.set(user.token);
         this.isAuthenticated.set(true);
-        this.router.navigate(["/websnaps"]);
+        this.router.navigate(["/"]);
       })
     );
   }
