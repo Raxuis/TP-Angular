@@ -11,6 +11,15 @@ export class CharactersService {
   private charactersApiUrl: string = 'https://rickandmortyapi.com/api/character';
   private http = inject(HttpClient);
 
+  getCharacterById(id: string): Observable<RickAndMortyCharacter> {
+    if (!id) {
+      throw new Error('ID is required');
+    }
+    return this.http.get<RickAndMortyCharacter>(`${this.charactersApiUrl}/${id}`).pipe(
+      map((character) => character)
+    )
+  }
+
   getCharactersList(): Observable<RickAndMortyCharacter[]> {
     return this.http.get<{ results: RickAndMortyCharacter[] }>(this.charactersApiUrl).pipe(
       map((response) => response.results)

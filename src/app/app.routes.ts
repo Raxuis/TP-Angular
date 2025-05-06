@@ -18,6 +18,12 @@ export const routes: Routes = [
   },
   // TODO: personnage/:id
   {
+    path: "personnages/:id",
+    title: `Détails du personnage - ${appTitle}`,
+    canActivate: [AuthGuard],
+    loadComponent: () => import("@/components/character/character.component").then(m => m.CharacterComponent)
+  },
+  {
     path: "nasa",
     title: `Nasa - ${appTitle}`,
     canActivate: [AuthGuard],

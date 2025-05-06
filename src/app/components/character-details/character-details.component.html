@@ -1,8 +1,19 @@
-<div class="character-card" [routerLink]="['/character', characterDetails.id]">
-  <img [src]="characterDetails.image" alt="{{ characterDetails.name }}"/>
-  <h3 class="character-name">{{ characterDetails.name }}</h3>
-  <div class="character-info">
-    <p class="badge">{{ characterDetails.species }}</p>
-    <p class="badge">{{ characterDetails.status }}</p>
+@if (characterDetails) {
+  <div class="character-card" [class.more-info-mode]="moreInfo" [routerLink]="['/personnages', characterDetails.id]"
+       [ngStyle]="!moreInfo ? { 'cursor': 'pointer' } : {}">
+    <img [ngSrc]="characterDetails.image" alt="{{ characterDetails.name }}" width="100" height="100"/>
+    <h3 class="character-name">{{ characterDetails.name }}</h3>
+    <div class="character-info">
+      <span class="badge">{{ characterDetails.species }}</span>
+      <span class="badge">{{ characterDetails.status }}</span>
+      <span class="badge">{{ characterDetails.gender }}</span>
+    </div>
+    @if (moreInfo) {
+      <hr/>
+      <div class="character-more-info">
+        <span class="badge">{{ characterDetails.location.name }}</span>
+        <span class="badge">{{ characterDetails.origin.name }}</span>
+      </div>
+    }
   </div>
-</div>
+}
