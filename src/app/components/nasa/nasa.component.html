@@ -1,0 +1,8 @@
+<div class="apod-container">
+  <h2>APOD</h2>
+  @if (apod() && mediaUrl()) {
+    <img [src]="mediaUrl()" alt="{{ apod()?.title }}"/>
+  } @else {
+    <p>Pas d'APOD</p>
+  }
+</div>

@@ -1,5 +1,5 @@
 import {Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
-import {CharactersService} from '@/services/characters.service';
+import {CharactersService} from '@/services/api/characters.service';
 import {RickAndMortyCharacter} from '@/models/api.model';
 import {CharacterDetailsComponent} from '@/components/character-details/character-details.component';
 

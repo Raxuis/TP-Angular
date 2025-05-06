@@ -8,10 +8,11 @@ import {RickAndMortyCharacter} from '@/models/api.model';
   providedIn: 'root'
 })
 export class CharactersService {
+  private charactersApiUrl: string = 'https://rickandmortyapi.com/api/character';
   private http = inject(HttpClient);
 
   getCharactersList(): Observable<RickAndMortyCharacter[]> {
-    return this.http.get<{ results: RickAndMortyCharacter[] }>('https://rickandmortyapi.com/api/character').pipe(
+    return this.http.get<{ results: RickAndMortyCharacter[] }>(this.charactersApiUrl).pipe(
       map((response) => response.results)
     )
   }

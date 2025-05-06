@@ -16,6 +16,13 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     loadComponent: () => import("@/components/character-list/character-list.component").then(m => m.CharacterListComponent)
   },
+  // TODO: personnage/:id
+  {
+    path: "nasa",
+    title: `Nasa - ${appTitle}`,
+    canActivate: [AuthGuard],
+    loadComponent: () => import("@/components/nasa/nasa.component").then(m => m.NasaComponent)
+  },
   {
     path: "auth",
     loadChildren: () => import("./routes/auth.routes").then(m => m.authRoutes)
