@@ -23,12 +23,16 @@ export class CharacterComponent implements OnInit {
     if (!id) {
       this.router.navigate(['personnages']);
     }
-    this.characterService.getCharacterById(id).subscribe(character => {
-      if (!character) {
+    this.characterService.getCharacterById(id).subscribe({
+      next: result => {
+        if (!result) {
+          this.router.navigate(['personnages']);
+        }
+        this.character.set(result);
+      },
+      error: () => {
         this.router.navigate(['personnages']);
-        return;
       }
-      this.character.set(character);
     })
   }
 

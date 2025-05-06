@@ -18,10 +18,22 @@ export class NasaComponent implements OnInit {
 
   ngOnInit(): void {
     this.nasa.getApodApiUrl()
-      .subscribe((apiResponse: Apod) => {
-          this.apod.set(apiResponse)
-          this.mediaUrl.set(apiResponse.media_type === 'video' ? apiResponse.thumbnail_url : apiResponse.url);
+      .subscribe({
+        next: result => {
+          if (!result) {
+            return;
+          }
+          this.apod.set(result);
+          if (result.media_type === 'image') {
+            this.mediaUrl.set(result.url);
+          } else {
+            this.mediaUrl.set(result.thumbnail_url);
+          }
+        },
+        error: () => {
+          this.apod.set(undefined);
+          this.mediaUrl.set(undefined);
         }
-      );
+      });
   }
 }
