@@ -102,3 +102,35 @@
     padding: 10px 0;
   }
 }
+
+@media (max-width: 768px) {
+  .character-card {
+    &.more-info-mode {
+      max-width: 400px;
+    }
+
+    .character-name {
+      font-size: 1.2rem;
+    }
+
+    .character-info, .character-more-info {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .character-card {
+    &.more-info-mode {
+      width: 80%;
+    }
+
+    .character-name {
+      font-size: 1rem;
+    }
+
+    .character-info, .character-more-info {
+      justify-content: center;
+    }
+  }
+}
