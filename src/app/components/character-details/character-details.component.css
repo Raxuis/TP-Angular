@@ -21,6 +21,10 @@
     img {
       max-width: 400px;
       margin: 0 auto;
+
+      &:hover {
+        transform: scale(1);
+      }
     }
 
     .character-name {
