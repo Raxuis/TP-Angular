@@ -1,13 +1,11 @@
 import {Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
 import {CharactersService} from '@/services/characters.service';
 import {RickAndMortyCharacter} from '@/models/api.model';
-import {RouterLink} from '@angular/router';
+import {CharacterDetailsComponent} from '@/components/character-details/character-details.component';
 
 @Component({
   selector: 'app-character-list',
-  imports: [
-    RouterLink
-  ],
+  imports: [CharacterDetailsComponent],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.css'
 })
@@ -19,7 +17,6 @@ export class CharacterListComponent implements OnInit {
     this.charactersService.getCharactersList()
       .subscribe((characters: RickAndMortyCharacter[]) => {
           this.characters.set(characters);
-          console.log('characters', this.characters());
         }
       );
   }
