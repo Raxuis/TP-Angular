@@ -7,34 +7,30 @@
 
     <label for="username">Nom d'utilisateur :</label>
     <input type="text" id="username" autocomplete="username" formControlName="username">
-    @if(
-      loginForm.get("username")?.invalid
-      && (
-        loginForm.get("username")?.dirty
-        || loginForm.get("username")?.touched
-        || loginForm.get("username")?.errors?.["required"]
-        || isSubmitted()
-      )
-    ){
-      <p>
+    @if (loginForm.get("username")?.invalid
+    && (
+      loginForm.get("username")?.dirty
+      || loginForm.get("username")?.touched
+      || loginForm.get("username")?.errors?.["required"]
+      || isSubmitted()
+    )) {
+      <span class="error">
         Le nom d'utilisateur est requis.
-      </p>
+      </span>
     }
 
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" autocomplete="current-password" formControlName="password">
-    @if(
-      loginForm.get("password")?.invalid
-      && (
-        loginForm.get("password")?.dirty
-        || loginForm.get("password")?.touched
-        || loginForm.get("password")?.errors?.["required"]
-        || isSubmitted()
-      )
-    ){
-      <p>
+    @if (loginForm.get("password")?.invalid
+    && (
+      loginForm.get("password")?.dirty
+      || loginForm.get("password")?.touched
+      || loginForm.get("password")?.errors?.["required"]
+      || isSubmitted()
+    )) {
+      <span class="error">
         Le mot de passe est requis.
-      </p>
+      </span>
     }
 
     <button type="submit" [disabled]="!loginForm.valid">
