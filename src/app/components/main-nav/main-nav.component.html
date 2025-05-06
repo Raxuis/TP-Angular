@@ -5,12 +5,12 @@
         Accueil
       </a>
     </li>
+    <li class="main-menu-items">
+      <a routerLink="/personnages" class="main-menu-links">
+        Personnages
+      </a>
+    </li>
     @if (isAuthenticated()) {
-      <li class="main-menu-items">
-        <a routerLink="/personnages" class="main-menu-links">
-          Personnages
-        </a>
-      </li>
       <li class="main-menu-items">
         <a routerLink="/nasa" class="main-menu-links">
           Nasa

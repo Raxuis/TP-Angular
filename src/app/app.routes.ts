@@ -13,14 +13,11 @@ export const routes: Routes = [
   {
     path: "personnages",
     title: `Liste des personnages - ${appTitle}`,
-    canActivate: [AuthGuard],
     loadComponent: () => import("@/components/character-list/character-list.component").then(m => m.CharacterListComponent)
   },
-  // TODO: personnage/:id
   {
     path: "personnages/:id",
     title: `Détails du personnage - ${appTitle}`,
-    canActivate: [AuthGuard],
     loadComponent: () => import("@/components/character/character.component").then(m => m.CharacterComponent)
   },
   {
