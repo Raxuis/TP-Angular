@@ -11,16 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import("@/components/landing-page/landing-page.component").then(m => m.LandingPageComponent)
   },
   {
-    path: "websnaps",
-    title: `Liste des websnap - ${appTitle}`,
+    path: "personnages",
+    title: `Liste des personnages - ${appTitle}`,
     canActivate: [AuthGuard],
-    loadComponent: () => import("@/components/web-snap-list/web-snap-list.component").then(m => m.WebSnapListComponent)
-  },
-  {
-    path: "websnaps/websnap/:id",
-    title: `WebSnap - ${appTitle}`,
-    canActivate: [AuthGuard],
-    loadComponent: () => import("@/components/web-snap/web-snap.component").then(m => m.WebSnapComponent)
+    loadComponent: () => import("@/components/character-list/character-list.component").then(m => m.CharacterListComponent)
   },
   {
     path: "auth",
