@@ -1,10 +1,13 @@
 <div class="apod-container">
-  <h2>APOD</h2>
-  @if (apod() && mediaUrl()) {
-    <div class="apod-info-card">
-      <img [ngSrc]="mediaUrl() || ''" alt="{{ apod()?.title }}" width="300" height="300"/>
-      <h3 class="apod-title">{{ apod()?.title }}</h3>
-      <p class="apod-description">{{ apod()?.explanation }}</p>
+  @if (isLoading()) {
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+    </div>
+  } @else if (apod()) {
+    <div class="nasa-container">
+      <h2>{{ apod()?.title }}</h2>
+      <img [ngSrc]="mediaUrl()!" [alt]="apod()?.title" width="800" height="600" priority>
+      <p>{{ apod()?.explanation }}</p>
     </div>
   } @else {
     <p>Pas d'APOD</p>

@@ -15,8 +15,10 @@ export class NasaComponent implements OnInit {
   private nasa = inject(NasaService);
   apod: WritableSignal<Apod | undefined> = signal(undefined);
   mediaUrl: WritableSignal<string | undefined> = signal(undefined);
+  isLoading: WritableSignal<boolean> = signal(true);
 
   ngOnInit(): void {
+    this.isLoading.set(true);
     this.nasa.getApodApiUrl()
       .subscribe({
         next: result => {
@@ -29,10 +31,12 @@ export class NasaComponent implements OnInit {
           } else {
             this.mediaUrl.set(result.thumbnail_url);
           }
+          this.isLoading.set(false);
         },
         error: () => {
           this.apod.set(undefined);
           this.mediaUrl.set(undefined);
+          this.isLoading.set(false);
         }
       });
   }

@@ -57,6 +57,7 @@ article {
         transform: translateY(-2px);
       }
     }
+
     .error {
       color: red;
       font-size: 1rem;
