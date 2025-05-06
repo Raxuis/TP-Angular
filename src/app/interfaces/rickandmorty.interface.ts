@@ -1,3 +1,13 @@
+export type RickAndMortyCharacterApiResponse = {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string;
+  };
+  results: RickAndMortyCharacter[];
+}
+
 export type RickAndMortyCharacter = {
   id: number;
   name: string;
