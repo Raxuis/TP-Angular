@@ -1,7 +1,11 @@
 <div class="apod-container">
   <h2>APOD</h2>
   @if (apod() && mediaUrl()) {
-    <img [src]="mediaUrl()" alt="{{ apod()?.title }}"/>
+    <div class="apod-info-card">
+      <img [ngSrc]="mediaUrl() || ''" alt="{{ apod()?.title }}" width="300" height="300"/>
+      <h3 class="apod-title">{{ apod()?.title }}</h3>
+      <p class="apod-description">{{ apod()?.explanation }}</p>
+    </div>
   } @else {
     <p>Pas d'APOD</p>
   }

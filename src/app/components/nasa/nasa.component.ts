@@ -1,10 +1,13 @@
 import {Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
 import {NasaService} from '@/services/api/nasa.service';
 import {Apod} from '@/models/apod.model';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-nasa',
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './nasa.component.html',
   styleUrl: './nasa.component.css'
 })
