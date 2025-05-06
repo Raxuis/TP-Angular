@@ -1,5 +1,5 @@
 import {Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
-import {RickAndMortyCharacter} from '@/models/api.model';
+import {RickAndMortyCharacter} from '@/interfaces/rickandmorty.interface';
 import {CharactersService} from '@/services/api/characters.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CharacterDetailsComponent} from '@/components/character-details/character-details.component';

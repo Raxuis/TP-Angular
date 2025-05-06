@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {RickAndMortyCharacter} from '@/models/api.model';
+import {RickAndMortyCharacter} from '@/interfaces/rickandmorty.interface';
 import {RouterLink} from '@angular/router';
 import {NgClass, NgOptimizedImage, NgStyle} from '@angular/common';
 

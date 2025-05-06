@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {RickAndMortyCharacter} from '@/models/api.model';
+import {RickAndMortyCharacter} from '@/interfaces/rickandmorty.interface';
 
 @Injectable({
   providedIn: 'root'

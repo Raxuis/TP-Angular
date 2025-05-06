@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
-import {Apod} from '@/models/apod.model';
+import {Apod} from '@/interfaces/apod.interface';
 
 @Injectable({
   providedIn: 'root'
