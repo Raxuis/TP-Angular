@@ -35,3 +35,20 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .apod-container {
+    margin: 10px;
+    .apod-info-card {
+      padding: 10px;
+
+      .apod-title {
+        font-size: 1.2rem;
+      }
+
+      .apod-description {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
