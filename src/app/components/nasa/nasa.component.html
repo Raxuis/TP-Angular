@@ -1,8 +1,6 @@
 <div class="apod-container">
   @if (isLoading()) {
-    <div class="loading-container">
-      <div class="loading-spinner"></div>
-    </div>
+    <app-loader/>
   } @else if (apod()) {
     <div class="nasa-container">
       <h2>{{ apod()?.title }}</h2>

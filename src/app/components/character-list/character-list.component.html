@@ -1,12 +1,15 @@
 <div class="character-list">
-  @if (characters()) {
+  @if (isLoading()) {
+    <h2>Liste des personnages</h2>
+    <app-loader/>
+  } @else if (characters()) {
     <h2>Liste des personnages</h2>
     <div class="character-grid">
       @for (character of characters(); track character) {
-      <app-character-details [characterDetails]="character"/>
+        <app-character-details [characterDetails]="character"/>
       }
     </div>
   } @else {
-    <p>Aucun personnage</p>
+    <p>Pas de personnage</p>
   }
 </div>
