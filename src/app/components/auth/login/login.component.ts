@@ -1,7 +1,8 @@
-import { AuthService } from '@/services/auth/auth.service';
-import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import {AuthService} from '@/services/auth/auth.service';
+import {CommonModule} from '@angular/common';
+import {Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,14 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+  private toastrService = inject(ToastrService);
   isSubmitted: WritableSignal<boolean> = signal(false);
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: [
         "",
@@ -31,10 +33,10 @@ export class LoginComponent implements OnInit{
     });
   }
 
-  onSubmit(): void{
+  onSubmit(): void {
     this.isSubmitted.set(true);
 
-    if(!this.loginForm.valid){
+    if (!this.loginForm.valid) {
       this.loginForm.markAllAsTouched();
       console.log("Formulaire invalide, soumission bloquée !");
       return;
@@ -44,8 +46,12 @@ export class LoginComponent implements OnInit{
     this.authService.login(username, password).subscribe(
       {
         error: (err) => {
-          console.error("Login error :",err);
-          alert("Une erreur est survenue lors de la connexion.");
+          console.error("Login error :", err);
+          this.toastrService.error("Une erreur est survenue lors de la connexion.", "Erreur");
+        },
+        next: () => {
+          this.toastrService.success("Connexion réussie !", "Succès");
+          this.loginForm.reset();
         }
       }
     );
